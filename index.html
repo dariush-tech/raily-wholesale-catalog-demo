@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="دموی پیشنهادی DARIUSH Digital Studio: کاتالوگ موبایلی عمده‌فروشی پوشاک با سفارش، حداقل عمده، کپی متن و پیش‌نمایش واتساپ. قیمت و موجودی نمایشی است.">
+<meta name="theme-color" content="#18181b">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="کاتالوگ عمده‌فروشی رایلی">
+<meta property="og:description" content="دموی پیشنهادی DARIUSH Digital Studio: کاتالوگ موبایلی عمده‌فروشی پوشاک با سفارش، حداقل عمده، کپی متن و پیش‌نمایش واتساپ. قیمت و موجودی نمایشی است.">
+<meta property="og:url" content="https://dariush-tech.github.io/raily-wholesale-catalog-demo/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Cpath d='M11 7l3-1.5Q16 8 18 5.5L21 7l5 3-2 4-3-1.5V26H11V12.5L8 14l-2-4z' fill='%23f0b443'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>کاتالوگ عمده رایلی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: phone-first wholesale catalog. Each model is a card led by its garment image, which recolours with the chosen
+   colour; options sit right under it. The order view lists editable rows, then a structured summary and the two share actions. */
+:root {
+  --bg: #f5f4f1;
+  --surface: #ffffff;
+  --surface-2: #efede8;
+  --photo: #ecebe5;
+  --ink: #18181b;
+  --muted: #66635c;
+  --line: #e3e0d9;
+  --line-strong: #cbc7bd;
+  --accent: #b86e00;
+  --accent-soft: #fbefd6;
+  --btn: #18181b;
+  --btn-ink: #ffffff;
+  --warn: #a34a00;
+  --warn-soft: #fdeedd;
+  --ok: #1b7243;
+  --danger: #b4232a;
+  --strip-bg: #18181b; --strip-fg: #f3d9a6;
+  --chat-bg: #e9e4da; --chat-bubble: #d9f2c9; --chat-ink: #18181b;
+  --shadow: 0 1px 2px rgba(24, 24, 27, 0.06), 0 6px 18px rgba(24, 24, 27, 0.05);
+  --scrim: rgba(12, 12, 14, 0.5);
+  --font: "Vazirmatn", "Tahoma", "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121213; --surface: #1b1b1d; --surface-2: #242427; --photo: #d9d6ce; --ink: #eeeeec; --muted: #a7a49d;
+    --line: #2d2d31; --line-strong: #3e3e44; --accent: #f0b443; --accent-soft: #3a2c0f; --btn: #f0eee9; --btn-ink: #18181b;
+    --warn: #f7b267; --warn-soft: #3a240f; --ok: #6fd39b; --danger: #f08080; --strip-bg: #000000; --strip-fg: #f3d9a6;
+    --chat-bg: #1d1f1c; --chat-bubble: #23402a; --chat-ink: #e8f2e3;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25); --scrim: rgba(0, 0, 0, 0.62);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121213; --surface: #1b1b1d; --surface-2: #242427; --photo: #d9d6ce; --ink: #eeeeec; --muted: #a7a49d;
+  --line: #2d2d31; --line-strong: #3e3e44; --accent: #f0b443; --accent-soft: #3a2c0f; --btn: #f0eee9; --btn-ink: #18181b;
+  --warn: #f7b267; --warn-soft: #3a240f; --ok: #6fd39b; --danger: #f08080; --strip-bg: #000000; --strip-fg: #f3d9a6;
+  --chat-bg: #1d1f1c; --chat-bubble: #23402a; --chat-ink: #e8f2e3;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25); --scrim: rgba(0, 0, 0, 0.62);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.7; direction: rtl; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; line-height: 1.4; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.muted { color: var(--muted); }
+.hint { font-size: 12.5px; color: var(--muted); }
+.mono { font-family: var(--mono); direction: ltr; unicode-bidi: isolate; font-size: 0.9em; letter-spacing: 0.02em; }
+.demo { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 0 8px; border-radius: 999px; white-space: nowrap; line-height: 1.8; }
+
+.strip { background: var(--strip-bg); color: var(--strip-fg); }
+.strip .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2px 16px; padding-block: 6px; font-size: 12.5px; }
+.strip span { opacity: 0.85; }
+.head .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; padding-block: 14px 8px; }
+.title h1 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; }
+.title p { font-size: 13px; color: var(--muted); }
+.head-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tabs { display: inline-flex; background: var(--surface-2); border-radius: 12px; padding: 4px; gap: 2px; }
+.tab { border: 0; background: none; padding: 8px 16px; border-radius: 9px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.badge { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--btn); color: var(--btn-ink); font-size: 12px; font-weight: 700; display: inline-grid; place-items: center; }
+
+.btn { border: 1px solid transparent; border-radius: 10px; padding: 10px 16px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; line-height: 1.3; }
+.btn-dark { background: var(--btn); color: var(--btn-ink); }
+.btn-dark:hover { opacity: 0.9; }
+.btn-ghost { background: var(--surface); border-color: var(--line-strong); }
+.btn-ghost:hover { background: var(--surface-2); }
+.btn-danger { background: var(--danger); color: var(--surface); }
+.btn-sm { padding: 6px 12px; font-size: 13.5px; border-radius: 9px; }
+.btn svg { width: 17px; height: 17px; flex: none; }
+
+.path { padding-block: 2px 12px; }
+.path ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.step { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); padding: 4px 12px 4px 9px; border: 1px dashed var(--line-strong); border-radius: 999px; background: var(--surface); }
+.step i { font-style: normal; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); font-size: 12px; font-weight: 700; }
+.step.done { color: var(--ink); border-style: solid; border-color: var(--accent); background: var(--accent-soft); }
+.step.done i { background: var(--accent); color: var(--surface); }
+.step .sh { display: none; }
+
+main { padding-bottom: 110px; }
+
+/* catalog */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.prod { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; box-shadow: var(--shadow); min-width: 0; }
+.photo { position: relative; background: var(--photo); aspect-ratio: 4 / 3; }
+.photo svg { width: 100%; height: 100%; display: block; }
+.photo .tag { position: absolute; top: 10px; inset-inline-start: 10px; font-size: 11px; background: var(--surface); color: var(--muted); padding: 1px 8px; border-radius: 999px; }
+.photo .code { position: absolute; bottom: 10px; inset-inline-end: 10px; font-family: var(--mono); font-size: 12px; background: var(--btn); color: var(--btn-ink); padding: 2px 8px; border-radius: 6px; direction: ltr; }
+.pbody { padding: 14px; display: grid; gap: 12px; align-content: start; }
+.ptop h2 { font-size: 1.02rem; font-weight: 700; }
+.ptop p { font-size: 12.5px; color: var(--muted); }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.price b { font-size: 1.12rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.price small { font-size: 12.5px; color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12.5px; color: var(--muted); }
+.facts strong { color: var(--ink); font-weight: 500; }
+.opt-label { font-size: 12.5px; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; gap: 8px; }
+.opt-label b { color: var(--ink); font-weight: 500; }
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+.sw { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--line-strong); padding: 0; background: var(--c); }
+.sw.mixed { background: conic-gradient(#e86a6a 0 33%, #6ab7e8 33% 66%, #f2d06b 66%); }
+.sw[aria-checked="true"] { box-shadow: 0 0 0 2px var(--ink); }
+.sizes { display: flex; flex-wrap: wrap; gap: 6px; }
+.sz { min-width: 44px; border: 1px solid var(--line-strong); background: var(--surface); border-radius: 9px; padding: 6px 10px; font-size: 13.5px; font-weight: 500; }
+.sz[aria-checked="true"] { background: var(--btn); color: var(--btn-ink); border-color: var(--btn); }
+.qty-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.stepper { display: inline-flex; align-items: stretch; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.stepper button { width: 40px; border: 0; background: var(--surface-2); font-size: 18px; font-weight: 700; line-height: 1; }
+.stepper input { width: 64px; border: 0; text-align: center; font-size: 16px; font-weight: 700; padding: 8px 0; background: var(--surface); font-variant-numeric: tabular-nums; }
+.moq-hint { font-size: 12px; color: var(--warn); }
+.add { width: 100%; }
+
+/* order */
+.order { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+.card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+.card-head h2 { font-size: 1.05rem; }
+.rows { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 14px; }
+.row.low { border-color: var(--warn); background: var(--warn-soft); }
+.row .thumb { width: 64px; height: 64px; border-radius: 10px; overflow: hidden; background: var(--photo); }
+.row .thumb svg { width: 100%; height: 100%; }
+.row .info { display: grid; gap: 8px; min-width: 0; }
+.row .l1 { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.row .l1 b { font-weight: 700; font-size: 14.5px; }
+.row .l1 .mono { color: var(--muted); }
+.row .opts { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 13px; color: var(--muted); align-items: center; }
+.row .opts strong { color: var(--ink); font-weight: 500; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; vertical-align: -1px; box-shadow: 0 0 0 1px var(--line-strong); background: var(--c); margin-inline-end: 4px; }
+.dot.mixed { background: conic-gradient(#e86a6a 0 33%, #6ab7e8 33% 66%, #f2d06b 66%); }
+.row .l3 { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.row .sum { font-weight: 700; font-variant-numeric: tabular-nums; }
+.row .stepper button { width: 34px; }
+.row .stepper input { width: 56px; padding: 6px 0; }
+.why { display: grid; grid-template-columns: 16px minmax(0, 1fr); align-items: start; gap: 4px 8px; font-size: 13px; color: var(--warn); font-weight: 500; }
+.why .linkish { grid-column: 2; justify-self: start; }
+.why svg { width: 16px; height: 16px; flex: none; margin-top: 3px; }
+.linkish { background: none; border: 0; padding: 0; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-size: 13px; font-weight: 500; }
+.x { border: 0; background: var(--surface-2); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 17px; line-height: 1; flex: none; }
+.empty { padding: 26px 16px; text-align: center; color: var(--muted); border: 1px dashed var(--line-strong); border-radius: 12px; font-size: 14px; display: grid; gap: 10px; justify-items: center; }
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 420px; }
+th, td { padding: 9px 10px; text-align: start; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 12px; color: var(--muted); font-weight: 500; background: var(--surface-2); }
+td.n { font-variant-numeric: tabular-nums; }
+tr.low td { color: var(--warn); }
+tfoot td { font-weight: 700; border-bottom: 0; }
+.totals { display: grid; gap: 4px; margin-top: 14px; font-size: 14px; }
+.totals div { display: flex; justify-content: space-between; gap: 10px; }
+.totals .grand { font-size: 1.1rem; font-weight: 800; padding-top: 8px; border-top: 1px solid var(--line); margin-top: 4px; }
+.share { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+.alert { margin-top: 12px; font-size: 13px; color: var(--warn); background: var(--warn-soft); border-radius: 10px; padding: 8px 12px; }
+details { margin-top: 14px; }
+summary { cursor: pointer; font-size: 13px; color: var(--muted); }
+textarea.txt { width: 100%; min-height: 220px; margin-top: 8px; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface-2); font-size: 13.5px; line-height: 1.8; resize: vertical; }
+
+/* sticky order bar */
+.bar { position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+.bar .in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.bar .t { display: grid; line-height: 1.4; }
+.bar .t b { font-size: 1.05rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.bar .t small { font-size: 12.5px; color: var(--muted); }
+
+/* whatsapp preview */
+.overlay { position: fixed; inset: 0; z-index: 30; background: var(--scrim); display: grid; place-items: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.chat { width: min(420px, 100%); max-height: 100%; display: grid; grid-template-rows: auto auto 1fr auto; overflow: hidden; border-radius: 18px; background: var(--chat-bg); box-shadow: var(--shadow); }
+.chat-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--surface); }
+.chat-head .av { width: 36px; height: 36px; border-radius: 50%; background: var(--btn); color: var(--btn-ink); display: grid; place-items: center; font-weight: 800; flex: none; }
+.chat-head .nm { flex: 1; min-width: 0; line-height: 1.4; }
+.chat-head .nm small { display: block; font-size: 12px; color: var(--muted); }
+.chat-note { font-size: 12px; text-align: center; padding: 6px 10px; background: var(--accent-soft); color: var(--ink); }
+.chat-body { overflow: auto; padding: 14px; display: grid; align-content: start; }
+.msg { justify-self: start; max-width: 92%; background: var(--chat-bubble); color: var(--chat-ink); border-radius: 12px 12px 4px 12px; padding: 10px 12px 6px; font-size: 13.5px; line-height: 1.8; white-space: pre-wrap; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08); }
+.msg time { display: block; text-align: left; font-size: 11px; opacity: 0.6; margin-top: 2px; }
+.chat-foot { display: flex; gap: 8px; padding: 10px 12px; background: var(--surface); }
+.chat-foot .fake { flex: 1; border-radius: 999px; background: var(--surface-2); padding: 8px 14px; font-size: 13px; color: var(--muted); }
+.toast { position: fixed; z-index: 40; left: 50%; transform: translateX(-50%); bottom: calc(88px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); padding: 9px 14px; border-radius: 10px; font-size: 14px; box-shadow: var(--shadow); width: max-content; max-width: calc(100% - 32px); }
+.foot { font-size: 12.5px; color: var(--muted); padding-block: 8px 0; }
+
+@media (max-width: 980px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .order { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .title h1 { font-size: 1.1rem; }
+  .head-actions { width: 100%; justify-content: space-between; }
+  .step .lg { display: none; } .step .sh { display: inline; }
+  .step { font-size: 12.5px; }
+  .card { padding: 14px; }
+  .share { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="strip">
+  <div class="wrap">
+    <b>دموی پیشنهادی DARIUSH Digital Studio</b>
+    <span>همهٔ قیمت‌ها و موجودی‌ها نمایشی است · محصولات فرضی است · سفارش فقط در همین مرورگر ذخیره می‌شود</span>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <div class="title">
+      <h1>کاتالوگ عمده‌فروشی</h1>
+      <p>طرح پیشنهادی برای عمده‌فروشی پوشاک رایلی</p>
+    </div>
+    <div class="head-actions">
+      <div class="tabs" role="tablist" aria-label="نماهای دمو">
+        <button class="tab" role="tab" id="tab-cat" aria-controls="view-cat" aria-selected="true" type="button">کاتالوگ</button>
+        <button class="tab" role="tab" id="tab-order" aria-controls="view-order" aria-selected="false" type="button">سفارش <span class="badge" id="row-count">۰</span></button>
+      </div>
+      <div id="reset-area"></div>
+    </div>
+  </div>
+</header>
+
+<nav class="path" aria-label="مسیر دمو">
+  <div class="wrap">
+    <ol id="steps">
+      <li class="step" data-step="view"><i>۱</i><span class="lg">سفارش نمونهٔ دومحصولی را در «سفارش» ببینید</span><span class="sh">سفارش نمونه</span></li>
+      <li class="step" data-step="add"><i>۲</i><span class="lg">از کاتالوگ یک مدل با رنگ و سایز اضافه کنید</span><span class="sh">افزودن مدل</span></li>
+      <li class="step" data-step="share"><i>۳</i><span class="lg">متن سفارش را کپی کنید یا پیش‌نمایش واتساپ را ببینید</span><span class="sh">کپی یا واتساپ</span></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <section id="view-cat" role="tabpanel" aria-labelledby="tab-cat">
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="view-order" role="tabpanel" aria-labelledby="tab-order" hidden>
+      <div class="order">
+        <div class="card">
+          <div class="card-head">
+            <h2>ردیف‌های سفارش</h2>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-ghost btn-sm" type="button" id="load-sample">بارگذاری سفارش نمونه</button>
+              <button class="btn btn-ghost btn-sm" type="button" id="clear">خالی کردن</button>
+            </div>
+          </div>
+          <div class="rows" id="rows"></div>
+        </div>
+        <div class="card" id="summary"></div>
+      </div>
+    </section>
+    <p class="foot">محصولات، کدها، قیمت‌ها و موجودی‌ها فرضی و نمایشی است و تصاویر، طرح نمونهٔ ساختهٔ دمو است. در نسخهٔ واقعی عکس محصولات خود رایلی جایگزین می‌شود.</p>
+  </div>
+</main>
+
+<div class="bar" id="bar">
+  <div class="in">
+    <div class="t"><b id="bar-total">۰ تومان</b><small id="bar-sub">سفارش خالی است</small></div>
+    <button class="btn btn-dark" type="button" id="bar-go">مشاهدهٔ سفارش</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="chat" role="dialog" aria-modal="true" aria-labelledby="chat-name">
+    <div class="chat-head">
+      <span class="av" aria-hidden="true">ر</span>
+      <span class="nm"><b id="chat-name">فروش رایلی (نمونه)</b><small>پیش‌نمایش واتساپ</small></span>
+      <button class="x" type="button" id="chat-close" aria-label="بستن">×</button>
+    </div>
+    <div class="chat-note">فقط پیش‌نمایش است؛ هیچ چت یا پیامی باز یا ارسال نمی‌شود.</div>
+    <div class="chat-body"><div class="msg" id="chat-msg"></div></div>
+    <div class="chat-foot"><span class="fake">پیام…</span><button class="btn btn-dark btn-sm" type="button" id="chat-copy">کپی متن</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+  const KEY = "raily-wholesale-demo-v1";
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fa = (n) => Number(n).toLocaleString("fa-IR");
+  const toLatin = (s) => String(s).replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+  const toman = (n) => fa(n) + " تومان";
+  let dateF; try { dateF = new Intl.DateTimeFormat("fa-IR-u-ca-persian", { year: "numeric", month: "long", day: "numeric" }); } catch (e) { dateF = new Intl.DateTimeFormat("fa-IR"); }
+
+  const C = {
+    black: ["مشکی", "#2b2b2e"], white: ["سفید", "#f6f6f3"], melange: ["طوسی ملانژ", "#a4a8ac"], navy: ["سرمه‌ای", "#27324f"],
+    cream: ["کرم", "#e8dcc3"], olive: ["زیتونی", "#6c7148"], lightblue: ["آبی روشن", "#94b3d5"], darkblue: ["آبی تیره", "#34507b"],
+    sky: ["آبی آسمانی", "#bcd5ee"], beige: ["بژ", "#d8c3a4"], pink: ["صورتی", "#f1b8c6"], blue: ["آبی", "#8ec3ee"], yellow: ["زرد", "#f4d468"], mixed: ["رنگی مخلوط", null],
+  };
+  const P = [
+    { code: "RL-T110", name: "تیشرت نخی یقه‌گرد", type: "tee", spec: "پنبهٔ ۱۰۰٪ · ۱۸۰ گرم", colors: ["black", "white", "melange", "navy"], optLabel: "سایز", opts: ["S", "M", "L", "XL", "XXL"], unit: "عدد", moq: 24, price: 185000, stock: 960 },
+    { code: "RL-H220", name: "هودی دورس توکرکی", type: "hoodie", spec: "دورس سه‌نخ · کلاه دوبل", colors: ["black", "cream", "olive"], optLabel: "سایز", opts: ["M", "L", "XL", "XXL"], unit: "عدد", moq: 12, price: 520000, stock: 340 },
+    { code: "RL-J330", name: "شلوار جین راسته", type: "jeans", spec: "جین کش ۱۱ اونس", colors: ["lightblue", "darkblue", "black"], optLabel: "سایز", opts: ["30", "32", "34", "36", "38"], unit: "عدد", moq: 12, price: 690000, stock: 420 },
+    { code: "RL-S140", name: "پیراهن کتان آستین‌بلند", type: "shirt", spec: "کتان نخی · یقه برگردان", colors: ["white", "sky", "beige"], optLabel: "سایز", opts: ["M", "L", "XL", "XXL"], unit: "عدد", moq: 12, price: 430000, stock: 300 },
+    { code: "RL-K510", name: "ست تیشرت و شلوارک بچگانه", type: "kids", spec: "پنبه · هر پک ۴ ست در ۴ سایز", colors: ["pink", "blue", "yellow"], optLabel: "پک", opts: ["سری ۴ سایز (۲ تا ۸ سال)"], unit: "پک", moq: 6, price: 1150000, stock: 90 },
+    { code: "RL-C610", name: "جوراب نخی ساق‌دار", type: "socks", spec: "پنبه و الیاف · آزاد", colors: ["black", "white", "mixed"], optLabel: "پک", opts: ["پک ۶ جفتی", "پک ۱۲ جفتی"], unit: "پک", moq: 10, price: 240000, priceBy: { "پک ۶ جفتی": 240000, "پک ۱۲ جفتی": 450000 }, stock: 150 },
+  ];
+  const byCode = Object.fromEntries(P.map((p) => [p.code, p]));
+  const priceOf = (p, opt) => (p.priceBy && p.priceBy[opt]) || p.price;
+  const SAMPLE = [
+    { code: "RL-T110", color: "black", opt: "L", qty: 48 },
+    { code: "RL-T110", color: "white", opt: "M", qty: 24 },
+    { code: "RL-H220", color: "cream", opt: "XL", qty: 8 },
+  ];
+
+  /* ---------- garment artwork (sample images, recoloured per colour) ---------- */
+  function shade(hex, k) {
+    const n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+    const f = (c) => Math.max(0, Math.min(255, Math.round(k < 0 ? c * (1 + k) : c + (255 - c) * k)));
+    return "#" + [f(r), f(g), f(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
+  }
+  let uid = 0;
+  const SH = {
+    tee: "M70 40 L85 33 Q100 45 115 33 L130 40 L166 60 L154 88 L137 80 L137 168 Q100 175 63 168 L63 80 L46 88 L34 60 Z",
+    hoodie: "M70 46 L86 38 Q100 44 114 38 L130 46 L160 66 L172 150 L154 155 L141 94 L141 170 Q100 178 59 170 L59 94 L46 155 L28 150 L40 66 Z",
+    shirt: "M72 38 L88 31 L100 42 L112 31 L128 38 L160 62 L172 150 L156 155 L141 92 L141 170 Q100 176 59 170 L59 92 L44 155 L28 150 L40 62 Z",
+    jeans: "M64 28 L136 28 L146 176 L110 176 L100 86 L90 176 L54 176 Z",
+  };
+  function garment(type, colorKey, size) {
+    const id = "g" + (++uid);
+    const base = C[colorKey][1] || "#cfcfcf";
+    const dk = shade(base, -0.28), lt = shade(base, 0.25);
+    const stroke = 'stroke="rgba(0,0,0,.22)" stroke-width="1.2"';
+    const grad = `<defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff" stop-opacity=".22"/><stop offset=".45" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity=".16"/></linearGradient>
+      <radialGradient id="${id}s" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>`;
+    const body = (d) => `<path d="${d}" fill="${base}" ${stroke}/><path d="${d}" fill="url(#${id})"/>`;
+    const shadow = `<ellipse cx="100" cy="184" rx="62" ry="6" fill="url(#${id}s)"/>`;
+    let inner = "";
+    if (type === "tee") inner = body(SH.tee) + `<path d="M85 33 Q100 52 115 33" fill="none" stroke="${dk}" stroke-width="5"/><path d="M63 80 L70 41 M137 80 L130 41" stroke="${dk}" stroke-opacity=".45"/><path d="M64 161 Q100 168 136 161" fill="none" stroke="${dk}" stroke-opacity=".4" stroke-dasharray="3 3"/>`;
+    else if (type === "hoodie") inner = `<path d="M86 38 Q83 12 100 10 Q117 12 114 38 Q100 54 86 38 Z" fill="${dk}" ${stroke}/>` + body(SH.hoodie) +
+      `<path d="M89 39 Q100 50 111 39 Q109 22 100 20 Q91 22 89 39 Z" fill="${shade(base, -0.45)}"/><path d="M76 128 L124 128 L132 157 Q100 162 68 157 Z" fill="none" stroke="${dk}" stroke-opacity=".6" stroke-width="1.4"/>
+       <path d="M95 46 L94 74 M105 46 L106 74" stroke="${lt}" stroke-width="2.2" stroke-linecap="round"/><path d="M30 145 L46 150 M170 145 L154 150 M60 162 Q100 170 140 162" fill="none" stroke="${dk}" stroke-opacity=".55" stroke-width="2"/>`;
+    else if (type === "shirt") inner = body(SH.shirt) + `<path d="M88 31 L100 42 L112 31 L108 25 Q100 29 92 25 Z" fill="${dk}"/><path d="M88 31 L95 50 L100 42 Z M112 31 L105 50 L100 42 Z" fill="${lt}" ${stroke}/>
+       <path d="M100 44 L100 172" stroke="${dk}" stroke-opacity=".45"/>${[62, 86, 110, 134, 158].map((y) => `<circle cx="100" cy="${y}" r="2.2" fill="${dk}"/>`).join("")}<rect x="70" y="72" width="18" height="20" rx="2" fill="none" stroke="${dk}" stroke-opacity=".5"/>`;
+    else if (type === "jeans") inner = body(SH.jeans) + `<path d="M64 28 L136 28 L137 40 L63 40 Z" fill="${dk}"/><path d="M100 40 L100 82 M100 70 Q110 70 110 54" fill="none" stroke="${dk}" stroke-width="1.4"/>
+       <path d="M66 46 Q80 54 85 41 M134 46 Q120 54 115 41" fill="none" stroke="${lt}" stroke-width="1.4"/><path d="M70 40 L76 176 M130 40 L124 176" stroke="${lt}" stroke-opacity=".5" stroke-dasharray="3 3"/>
+       ${[72, 92, 108, 128].map((x) => `<rect x="${x - 2}" y="26" width="4" height="12" rx="1" fill="${lt}"/>`).join("")}<circle cx="100" cy="34" r="2.6" fill="#c8a24a"/>`;
+    else if (type === "kids") {
+      const sh = shade(base, -0.18);
+      inner = `<g transform="translate(6 32) scale(.62)">${body(SH.tee)}<path d="M85 33 Q100 52 115 33" fill="none" stroke="${dk}" stroke-width="5"/><circle cx="100" cy="104" r="16" fill="${lt}"/><path d="M92 102 Q100 112 108 102" fill="none" stroke="${dk}" stroke-width="3" stroke-linecap="round"/><circle cx="94" cy="98" r="2" fill="${dk}"/><circle cx="106" cy="98" r="2" fill="${dk}"/></g>
+        <g transform="translate(112 86)"><path d="M0 0 L66 0 L72 58 L42 58 L33 22 L24 58 L-6 58 Z" fill="${sh}" ${stroke}/><path d="M0 0 L66 0 L67 9 L-1 9 Z" fill="${dk}"/><path d="M33 9 L33 24" stroke="${dk}"/></g>`;
+    } else if (type === "socks") {
+      const one = (x, y, col, r) => {
+        const d = shade(col, -0.28);
+        return `<g transform="translate(${x} ${y}) rotate(${r})"><path d="M0 0 L30 0 L30 74 Q30 86 46 90 L70 96 Q82 100 78 113 Q73 124 60 121 L16 110 Q0 105 0 90 Z" fill="${col}" ${stroke}/>
+          <path d="M0 0 L30 0 L30 18 L0 18 Z" fill="${d}"/>${[5, 10, 15, 20, 25].map((k) => `<path d="M${k} 1 L${k} 17" stroke="${shade(col, -0.45)}" stroke-opacity=".5"/>`).join("")}<path d="M58 96 Q74 100 72 114" fill="none" stroke="${d}" stroke-width="5" stroke-opacity=".7"/></g>`;
+      };
+      const cols = colorKey === "mixed" ? ["#e98282", "#7db9e6", "#f2d06b"] : [base, shade(base, -0.06), shade(base, 0.06)];
+      inner = one(36, 44, cols[0], -8) + one(72, 34, cols[1], -2) + one(106, 30, cols[2], 6) +
+        `<g transform="translate(150 150)"><rect x="-22" y="-12" width="44" height="24" rx="6" fill="#18181b"/><text x="0" y="5" font-size="13" font-family="Vazirmatn, Tahoma, sans-serif" fill="#ffffff" text-anchor="middle">پک</text></g>`;
+    }
+    return `<svg viewBox="0 0 200 200" role="img" aria-label="تصویر نمونه، ${C[colorKey][0]}"${size ? ` width="${size}" height="${size}"` : ""}>${grad}<rect width="200" height="200" style="fill:var(--photo)"/>${shadow}${inner}</svg>`;
+  }
+
+  /* ---------- state ---------- */
+  function load() {
+    try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && Array.isArray(s.order)) return s; } catch (e) {}
+    return { order: SAMPLE.map((r) => ({ ...r })) };
+  }
+  let state = load();
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  const ui = { view: "cat", pick: {}, resetAsk: false, steps: { view: false, add: false, share: false } };
+  P.forEach((p) => (ui.pick[p.code] = { color: p.colors[0], opt: p.opts[p.opts.length > 2 ? 2 : 0], qty: p.moq }));
+
+  /* ---------- routing ---------- */
+  const tabs = { cat: $("#tab-cat"), order: $("#tab-order") };
+  const views = { cat: $("#view-cat"), order: $("#view-order") };
+  function show(v) {
+    ui.view = v === "order" ? "order" : "cat";
+    for (const k of ["cat", "order"]) { tabs[k].setAttribute("aria-selected", String(k === ui.view)); views[k].hidden = k !== ui.view; }
+    if (ui.view === "order" && state.order.length) ui.steps.view = true;
+    render(); try { scrollTo({ top: 0 }); } catch (e) {}
+  }
+  const route = () => show(location.hash === "#order" ? "order" : "cat");
+  tabs.cat.addEventListener("click", () => { location.hash = "catalog"; });
+  tabs.order.addEventListener("click", () => { location.hash = "order"; });
+  $("#bar-go").addEventListener("click", () => { location.hash = ui.view === "order" ? "catalog" : "order"; });
+  addEventListener("hashchange", route);
+  addEventListener("storage", (e) => { if (e.key === KEY) { state = load(); render(); } });
+
+  /* ---------- catalog ---------- */
+  function renderGrid() {
+    $("#grid").innerHTML = P.map((p) => {
+      const s = ui.pick[p.code], pr = priceOf(p, s.opt), low = s.qty < p.moq;
+      return `<article class="prod" data-code="${p.code}">
+        <div class="photo">${garment(p.type, s.color)}<span class="tag">تصویر نمونه</span><span class="code">${p.code}</span></div>
+        <div class="pbody">
+          <div class="ptop"><h2>${p.name}</h2><p>${p.spec}</p></div>
+          <div class="price"><b>${toman(pr)}</b><small>هر ${p.unit}</small><span class="demo">قیمت نمایشی</span></div>
+          <div class="facts"><span>حداقل سفارش: <strong>${fa(p.moq)} ${p.unit}</strong> برای هر رنگ و ${p.optLabel}</span><span>موجودی: <strong>${fa(p.stock)} ${p.unit}</strong> <span class="demo">نمایشی</span></span></div>
+          <div><div class="opt-label" id="c-${p.code}">رنگ <b>${C[s.color][0]}</b></div>
+            <div class="swatches" role="radiogroup" aria-labelledby="c-${p.code}">${p.colors.map((c) =>
+              `<button class="sw${c === "mixed" ? " mixed" : ""}" type="button" role="radio" data-color="${c}" aria-checked="${s.color === c}" aria-label="${C[c][0]}" title="${C[c][0]}" style="--c:${C[c][1] || "transparent"}"></button>`).join("")}</div></div>
+          <div><div class="opt-label" id="o-${p.code}">${p.optLabel}</div>
+            <div class="sizes" role="radiogroup" aria-labelledby="o-${p.code}">${p.opts.map((o) => `<button class="sz" type="button" role="radio" data-opt="${esc(o)}" aria-checked="${s.opt === o}">${esc(o)}</button>`).join("")}</div></div>
+          <div class="qty-row">
+            <span class="stepper"><button type="button" data-q="-1" aria-label="کم کردن">−</button><input type="text" inputmode="numeric" data-qty value="${fa(s.qty).replace(/٬/g, "")}" aria-label="تعداد ${p.name}"><button type="button" data-q="1" aria-label="زیاد کردن">+</button></span>
+            <span class="${low ? "moq-hint" : "hint"}">${low ? `کمتر از حداقل عمده (${fa(p.moq)} ${p.unit})` : `جمع: ${toman(pr * s.qty)}`}</span>
+          </div>
+          <button class="btn btn-dark add" type="button" data-add>افزودن به سفارش</button>
+        </div></article>`;
+    }).join("");
+  }
+  function refreshCard(code) {
+    const el = document.querySelector(`.prod[data-code="${code}"]`); if (!el) return;
+    const focus = document.activeElement && el.contains(document.activeElement) ? (document.activeElement.dataset.color ? `[data-color="${document.activeElement.dataset.color}"]` : document.activeElement.dataset.opt ? `[data-opt="${document.activeElement.dataset.opt}"]` : document.activeElement.dataset.q ? `[data-q="${document.activeElement.dataset.q}"]` : null) : null;
+    renderGrid();
+    if (focus) { const f = document.querySelector(`.prod[data-code="${code}"] ${focus}`); if (f) f.focus(); }
+  }
+  $("#grid").addEventListener("click", (e) => {
+    const card = e.target.closest(".prod"); if (!card) return;
+    const p = byCode[card.dataset.code], s = ui.pick[p.code];
+    const c = e.target.closest("[data-color]"); if (c) { s.color = c.dataset.color; return refreshCard(p.code); }
+    const o = e.target.closest("[data-opt]"); if (o) { s.opt = o.dataset.opt; return refreshCard(p.code); }
+    const q = e.target.closest("[data-q]"); if (q) { s.qty = Math.max(1, s.qty + Number(q.dataset.q)); return refreshCard(p.code); }
+    if (e.target.closest("[data-add]")) addToOrder(p, s);
+  });
+  $("#grid").addEventListener("change", (e) => {
+    if (!e.target.matches("[data-qty]")) return;
+    const p = byCode[e.target.closest(".prod").dataset.code];
+    const n = parseInt(toLatin(e.target.value).replace(/[^\d]/g, ""), 10);
+    ui.pick[p.code].qty = n > 0 ? Math.min(n, 99999) : 1; refreshCard(p.code);
+  });
+  function addToOrder(p, s) {
+    const ex = state.order.find((r) => r.code === p.code && r.color === s.color && r.opt === s.opt);
+    if (ex) ex.qty += s.qty; else state.order.push({ code: p.code, color: s.color, opt: s.opt, qty: s.qty });
+    save(); ui.steps.add = true; renderBar(); renderBadge(); renderSteps();
+    toast(`${p.code} · ${C[s.color][0]} · ${s.opt} — ${fa(s.qty)} ${p.unit} ${ex ? "به ردیف موجود اضافه شد" : "به سفارش اضافه شد"}`);
+  }
+
+  /* ---------- order ---------- */
+  const rowTotal = (r) => priceOf(byCode[r.code], r.opt) * r.qty;
+  const totals = () => {
+    const sum = state.order.reduce((a, r) => a + rowTotal(r), 0);
+    const pcs = state.order.filter((r) => byCode[r.code].unit === "عدد").reduce((a, r) => a + r.qty, 0);
+    const packs = state.order.filter((r) => byCode[r.code].unit === "پک").reduce((a, r) => a + r.qty, 0);
+    const low = state.order.filter((r) => r.qty < byCode[r.code].moq).length;
+    return { sum, pcs, packs, low, models: new Set(state.order.map((r) => r.code)).size };
+  };
+  const countText = (t) => [t.pcs ? fa(t.pcs) + " عدد" : "", t.packs ? fa(t.packs) + " پک" : ""].filter(Boolean).join(" و ") || "۰";
+  const warnIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.5v.01"/></svg>';
+  function renderRows() {
+    const box = $("#rows");
+    if (!state.order.length) {
+      box.innerHTML = `<div class="empty">سفارش خالی است.<span><button class="btn btn-dark btn-sm" type="button" data-act="sample">بارگذاری سفارش نمونه</button> <button class="btn btn-ghost btn-sm" type="button" data-act="cat">رفتن به کاتالوگ</button></span></div>`;
+      return;
+    }
+    box.innerHTML = state.order.map((r, i) => {
+      const p = byCode[r.code], low = r.qty < p.moq, pr = priceOf(p, r.opt);
+      return `<div class="row${low ? " low" : ""}" data-i="${i}">
+        <span class="thumb">${garment(p.type, r.color)}</span>
+        <div class="info">
+          <div class="l1"><span><b>${p.name}</b><br><span class="mono">${p.code}</span></span><button class="x" type="button" data-del aria-label="حذف ردیف ${p.code} ${C[r.color][0]} ${esc(r.opt)}">×</button></div>
+          <div class="opts"><span><i class="dot${r.color === "mixed" ? " mixed" : ""}" style="--c:${C[r.color][1] || "transparent"}"></i><strong>${C[r.color][0]}</strong></span><span>${p.optLabel}: <strong>${esc(r.opt)}</strong></span><span>فی: ${toman(pr)}</span></div>
+          <div class="l3">
+            <span class="stepper"><button type="button" data-q="-1" aria-label="کم کردن">−</button><input type="text" inputmode="numeric" data-rq value="${fa(r.qty).replace(/٬/g, "")}" aria-label="تعداد ${p.code} ${C[r.color][0]} ${esc(r.opt)}"><button type="button" data-q="1" aria-label="زیاد کردن">+</button></span>
+            <span class="sum">${toman(pr * r.qty)}</span>
+          </div>
+          ${low ? `<div class="why">${warnIcon}<span>کمتر از حداقل عمده: این مدل حداقل ${fa(p.moq)} ${p.unit} برای هر رنگ و ${p.optLabel} است؛ ${fa(p.moq - r.qty)} ${p.unit} کم دارد.</span><button class="linkish" type="button" data-fix>رساندن به ${fa(p.moq)}</button></div>` : ""}
+        </div></div>`;
+    }).join("");
+  }
+  $("#rows").addEventListener("click", (e) => {
+    const a = e.target.closest("[data-act]");
+    if (a) { if (a.dataset.act === "sample") loadSample(); else location.hash = "catalog"; return; }
+    const row = e.target.closest("[data-i]"); if (!row) return;
+    const i = Number(row.dataset.i), r = state.order[i];
+    if (e.target.closest("[data-del]")) { state.order.splice(i, 1); commit(); toast("ردیف حذف شد."); return; }
+    if (e.target.closest("[data-fix]")) { r.qty = byCode[r.code].moq; commit(); focusRow(i, "[data-rq]"); return; }
+    const q = e.target.closest("[data-q]"); if (q) { r.qty = Math.max(1, r.qty + Number(q.dataset.q)); commit(); focusRow(i, `[data-q="${q.dataset.q}"]`); }
+  });
+  $("#rows").addEventListener("change", (e) => {
+    if (!e.target.matches("[data-rq]")) return;
+    const i = Number(e.target.closest("[data-i]").dataset.i);
+    const n = parseInt(toLatin(e.target.value).replace(/[^\d]/g, ""), 10);
+    state.order[i].qty = n > 0 ? Math.min(n, 99999) : 1; commit();
+  });
+  function focusRow(i, sel) { const el = document.querySelector(`#rows [data-i="${i}"] ${sel}`); if (el) el.focus(); }
+
+  function orderText() {
+    const t = totals(), lines = [];
+    lines.push("سفارش عمده · پوشاک رایلی (نسخهٔ نمایشی)");
+    lines.push("تاریخ: " + dateF.format(new Date()));
+    lines.push("—————————————");
+    state.order.forEach((r, i) => {
+      const p = byCode[r.code], pr = priceOf(p, r.opt);
+      lines.push(`${fa(i + 1)}) ${p.name}`);
+      lines.push(`   کد مدل: ${r.code} | رنگ: ${C[r.color][0]}`);
+      lines.push(`   ${p.optLabel}: ${r.opt} | تعداد: ${fa(r.qty)} ${p.unit}`);
+      lines.push(`   فی: ${fa(pr)} | جمع ردیف: ${toman(pr * r.qty)}`);
+      if (r.qty < p.moq) lines.push(`   ⚠ کمتر از حداقل عمده (${fa(p.moq)} ${p.unit})`);
+    });
+    lines.push("—————————————");
+    lines.push(`تعداد مدل: ${fa(t.models)} | تعداد ردیف: ${fa(state.order.length)}`);
+    lines.push(`جمع تعداد: ${countText(t)}`);
+    lines.push(`جمع سفارش: ${toman(t.sum)}`);
+    lines.push("* قیمت‌ها و موجودی نمایشی است.");
+    return lines.join("\n");
+  }
+  function renderSummary() {
+    const box = $("#summary"), t = totals();
+    if (!state.order.length) { box.innerHTML = `<div class="card-head"><h2>خلاصهٔ سفارش</h2></div><p class="hint">با افزودن مدل‌ها، خلاصهٔ ساختاریافته اینجا ساخته می‌شود.</p>`; return; }
+    box.innerHTML = `
+      <div class="card-head"><h2>خلاصهٔ سفارش</h2><span class="demo">مبالغ نمایشی</span></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>کد مدل</th><th>رنگ</th><th>سایز / پک</th><th>تعداد</th><th>جمع ردیف (تومان)</th></tr></thead>
+        <tbody>${state.order.map((r) => { const p = byCode[r.code]; return `<tr class="${r.qty < p.moq ? "low" : ""}"><td class="mono">${r.code}</td><td>${C[r.color][0]}</td><td>${esc(r.opt)}</td><td class="n">${fa(r.qty)} ${p.unit}${r.qty < p.moq ? " ⚠" : ""}</td><td class="n">${fa(rowTotal(r))}</td></tr>`; }).join("")}</tbody>
+      </table></div>
+      <div class="totals">
+        <div><span class="muted">تعداد مدل / ردیف</span><span>${fa(t.models)} مدل · ${fa(state.order.length)} ردیف</span></div>
+        <div><span class="muted">جمع تعداد</span><span>${countText(t)}</span></div>
+        <div class="grand"><span>جمع سفارش</span><span>${toman(t.sum)}</span></div>
+      </div>
+      ${t.low ? `<p class="alert">${fa(t.low)} ردیف کمتر از حداقل عمده است. دلیل کنار همان ردیف نوشته شده و در متن سفارش هم علامت می‌خورد.</p>` : ""}
+      <div class="share">
+        <button class="btn btn-dark" type="button" id="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>کپی متن سفارش</button>
+        <button class="btn btn-ghost" type="button" id="wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg>پیش‌نمایش واتساپ</button>
+      </div>
+      <details><summary>متن سفارش</summary><textarea class="txt" id="txt" readonly aria-label="متن سفارش">${esc(orderText())}</textarea></details>`;
+    $("#copy").addEventListener("click", () => copyOrder());
+    $("#wa").addEventListener("click", openChat);
+  }
+  function copyOrder() {
+    const text = orderText();
+    ui.steps.share = true; renderSteps();
+    const fallback = () => {
+      const d = $("#summary details"); if (d) d.open = true;
+      const ta = $("#txt"); if (ta) { ta.focus(); ta.select(); }
+      toast("متن انتخاب شد؛ با کپی دستگاه آن را بردارید.");
+    };
+    try { navigator.clipboard.writeText(text).then(() => toast("متن سفارش کپی شد."), fallback); } catch (e) { fallback(); }
+  }
+  const overlay = $("#overlay"); let lastFocus = null;
+  function openChat() {
+    lastFocus = document.activeElement;
+    const now = new Date();
+    $("#chat-msg").innerHTML = `${esc(orderText())}<time>${fa(now.getHours())}:${fa(now.getMinutes()).padStart(2, "۰")}</time>`;
+    overlay.hidden = false; $("#chat-close").focus(); ui.steps.share = true; renderSteps();
+  }
+  function closeChat() { if (overlay.hidden) return; overlay.hidden = true; if (lastFocus && document.contains(lastFocus)) lastFocus.focus(); }
+  $("#chat-close").addEventListener("click", closeChat);
+  $("#chat-copy").addEventListener("click", () => {
+    const fb = () => { const r = document.createRange(); r.selectNodeContents($("#chat-msg")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("متن انتخاب شد؛ با کپی دستگاه آن را بردارید."); };
+    try { navigator.clipboard.writeText(orderText()).then(() => toast("متن سفارش کپی شد."), fb); } catch (e) { fb(); }
+  });
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeChat(); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape") closeChat(); });
+
+  function loadSample() { state.order = SAMPLE.map((r) => ({ ...r })); ui.steps.view = true; commit(); toast("سفارش نمونهٔ دومحصولی بارگذاری شد."); }
+  $("#load-sample").addEventListener("click", loadSample);
+  $("#clear").addEventListener("click", () => { state.order = []; commit(); toast("سفارش خالی شد."); });
+
+  /* ---------- shared ---------- */
+  function renderBar() {
+    const t = totals();
+    $("#bar-total").textContent = toman(t.sum);
+    $("#bar-sub").textContent = state.order.length ? `${fa(t.models)} مدل · ${fa(state.order.length)} ردیف · ${countText(t)} · مبالغ نمایشی` : "سفارش خالی است";
+    $("#bar-go").textContent = ui.view === "order" ? "بازگشت به کاتالوگ" : "مشاهدهٔ سفارش";
+  }
+  function renderBadge() { $("#row-count").textContent = fa(state.order.length); }
+  function renderSteps() { document.querySelectorAll("#steps .step").forEach((li) => li.classList.toggle("done", !!ui.steps[li.dataset.step])); }
+  function render() { renderBadge(); renderSteps(); renderBar(); if (ui.view === "cat") renderGrid(); else { renderRows(); renderSummary(); } }
+  function commit() { save(); render(); }
+  let tt;
+  function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => (t.hidden = true), 2600); }
+  function renderReset() {
+    const area = $("#reset-area");
+    if (!ui.resetAsk) {
+      area.innerHTML = `<button class="btn btn-ghost btn-sm" id="reset" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>بازنشانی دمو</button>`;
+      $("#reset").addEventListener("click", () => { ui.resetAsk = true; renderReset(); });
+    } else {
+      area.innerHTML = `<span style="display:inline-flex;gap:6px;align-items:center;font-size:13px">سفارش به حالت نمونه برگردد؟
+        <button class="btn btn-danger btn-sm" id="reset-yes" type="button">بله</button><button class="btn btn-ghost btn-sm" id="reset-no" type="button">انصراف</button></span>`;
+      $("#reset-yes").addEventListener("click", () => {
+        try { localStorage.removeItem(KEY); } catch (e) {}
+        state = load(); save(); ui.resetAsk = false; ui.steps = { view: false, add: false, share: false };
+        P.forEach((p) => (ui.pick[p.code] = { color: p.colors[0], opt: p.opts[p.opts.length > 2 ? 2 : 0], qty: p.moq }));
+        renderReset(); location.hash = "catalog"; route(); toast("دمو به حالت اولیه برگشت.");
+      });
+      $("#reset-no").addEventListener("click", () => { ui.resetAsk = false; renderReset(); });
+      $("#reset-yes").focus();
+    }
+  }
+  renderReset(); route();
+})();
+</script>
+</body>
+</html>
